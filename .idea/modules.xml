@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_java-core.iml" filepath="$PROJECT_DIR$/01_java-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audit-accessdata/audit-accessdata.iml" filepath="$PROJECT_DIR$/audit-accessdata/audit-accessdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audit-model/audit-model.iml" filepath="$PROJECT_DIR$/audit-model/audit-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audit-xcomp/audit-xcomp.iml" filepath="$PROJECT_DIR$/audit-xcomp/audit-xcomp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fics-accessdata/fics-accessdata.iml" filepath="$PROJECT_DIR$/fics-accessdata/fics-accessdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fics-model/fics-model.iml" filepath="$PROJECT_DIR$/fics-model/fics-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fics-xcomp/fics-xcomp.iml" filepath="$PROJECT_DIR$/fics-xcomp/fics-xcomp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-accessdata/security-accessdata.iml" filepath="$PROJECT_DIR$/security-accessdata/security-accessdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-model/security-model.iml" filepath="$PROJECT_DIR$/security-model/security-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-xcomp/security-xcomp.iml" filepath="$PROJECT_DIR$/security-xcomp/security-xcomp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xadacore/xadacore.iml" filepath="$PROJECT_DIR$/xadacore/xadacore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xadacore-util/xadacore-util.iml" filepath="$PROJECT_DIR$/xadacore-util/xadacore-util.iml" />
+    </modules>
+  </component>
+</project>
