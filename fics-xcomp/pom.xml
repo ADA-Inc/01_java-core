@@ -16,6 +16,28 @@
     <description></description>
 
     <dependencies>
+        <!-- dependencies projects -->
+
+        <dependency>
+            <groupId>com.ada</groupId>
+            <artifactId>fics-accessdata</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ada</groupId>
+            <artifactId>fics-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ada</groupId>
+            <artifactId>xadacore-util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- dependencies module -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -26,6 +48,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -16,6 +16,22 @@
     <description></description>
 
     <dependencies>
+        <!-- dependencies projects -->
+
+        <dependency>
+            <groupId>com.ada</groupId>
+            <artifactId>audit-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ada</groupId>
+            <artifactId>fics-accessdata</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- dependencies module -->
+
         <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -33,6 +49,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
     </dependencies>
 
     <build>

@@ -16,6 +16,11 @@
     <description></description>
 
     <dependencies>
+
+        <!-- dependencies projects -->
+
+        <!-- dependencies module -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
