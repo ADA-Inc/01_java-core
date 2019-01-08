@@ -24,6 +24,88 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!-- Perfil especifico para el cliente y propiedades para cada componente -->
+    <profiles>
+        <profile>
+            <id>AdarchitureCore</id>
+            <properties>
+                <!-- Mismo nombre del perfil de ITC -->
+                <ada.profile.active>AdarchitureCore</ada.profile.active>
+
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <bundleFileNameWar>adaCoreItc</bundleFileNameWar>
+                <bundleFileNameEar>adaCoreItcEar</bundleFileNameEar>
+
+                <!-- Versiones Artefactos -->
+                <springVersion>5.1.0.RELEASE</springVersion>
+                <myBatisSpringVersion>1.3.2</myBatisSpringVersion>
+                <myBatisVersion> 3.4.6</myBatisVersion>
+                <log4j2Version>2.11.1</log4j2Version>
+                <junitVersion>4.12</junitVersion>
+                <adarchitecture.xcomp.version>1.0</adarchitecture.xcomp.version>
+
+                <!-- Propiedades itc-adarchitecture-security-xcomp para el proyecto -->
+                <security.xcomp.version>1.0</security.xcomp.version>
+                <security.xcomp.isdatasource>false</security.xcomp.isdatasource>
+                <security.xcomp.datasource.name>none</security.xcomp.datasource.name>
+
+                <!-- Propiedades itc-adarchitecture-fics-xcomp para el proyecto -->
+                <fics.xcomp.version>1.0</fics.xcomp.version>
+                <fics.xcomp.isdatasource>true</fics.xcomp.isdatasource>
+                <fics.xcomp.datasource.name>AdarchitureCoreDS</fics.xcomp.datasource.name>
+
+                <!-- Propiedades itc-adarchitecture-audit-xcomp para el proyecto -->
+                <audit.xcomp.version>1.0</audit.xcomp.version>
+                <audit.xcomp.isdatasource>true</audit.xcomp.isdatasource>
+                <audit.xcomp.datasource.name>AdarchitureCoreAuditDS</audit.xcomp.datasource.name>
+
+            </properties>
+            <!-- Se establece para ser el perfil unico
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            -->
+        </profile>
+        <profile>
+            <id>AdarchitureCoreOccidente</id>
+            <properties>
+                <!-- Mismo nombre del perfil de ITC -->
+                <ada.profile.active>AdarchitureCoreOccidente</ada.profile.active>
+
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <bundleFileNameWar>adaCoreItc</bundleFileNameWar>
+                <bundleFileNameEar>adaCoreItcEar</bundleFileNameEar>
+
+                <!-- Versiones Artefactos -->
+                <springVersion>5.1.0.RELEASE</springVersion>
+                <myBatisSpringVersion>1.3.2</myBatisSpringVersion>
+                <myBatisVersion> 3.4.6</myBatisVersion>
+                <log4j2Version>2.11.1</log4j2Version>
+                <junitVersion>4.12</junitVersion>
+                <adarchitecture.xcomp.version>1.0</adarchitecture.xcomp.version>
+
+                <!-- Propiedades itc-adarchitecture-security-xcomp para el proyecto -->
+                <security.xcomp.version>1.0</security.xcomp.version>
+                <security.xcomp.isdatasource>false</security.xcomp.isdatasource>
+                <security.xcomp.datasource.name>none</security.xcomp.datasource.name>
+
+                <!-- Propiedades itc-adarchitecture-fics-xcomp para el proyecto -->
+                <fics.xcomp.version>1.0</fics.xcomp.version>
+                <fics.xcomp.isdatasource>true</fics.xcomp.isdatasource>
+                <fics.xcomp.datasource.name>AdarchitureCoreDS</fics.xcomp.datasource.name>
+
+                <!-- Propiedades itc-adarchitecture-audit-xcomp para el proyecto -->
+                <audit.xcomp.version>1.0</audit.xcomp.version>
+                <audit.xcomp.isdatasource>true</audit.xcomp.isdatasource>
+                <audit.xcomp.datasource.name>AdarchitureCoreAuditDS</audit.xcomp.datasource.name>
+
+            </properties>
+            <!-- Se establece para ser el perfil unico-->
+            <activation> <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
     <modules>
         <module>audit-accessdata</module>
         <module>audit-model</module>

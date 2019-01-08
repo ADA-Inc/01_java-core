@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="OFF">
+	<Properties>
+		<Property name="log-path">logs</Property>
+		<Property name="fae_crearclienteadquiriente-path">fae_crearclienteadquiriente</Property>
+		<Property name="fae_actualizarclienteadquiriente-path">fae_actualizarclienteadquirient</Property>
+		<Property name="fae_emitirfacturaelectronica-path">fae_emitirfacturaelectronica</Property>
+		<Property name="fae_emitirnotacreditoelectronica-path">fae_emitirnotacreditoelectronica</Property>
+		<Property name="fae_emitirnotadebitoelectronica-path">fae_emitirnotadebitoelectronica</Property>
+		<Property name="fae_cambiolog-path">fae_cambiolog</Property>
+	</Properties>
+	<Appenders>
+		<Console name="console-log" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+			<Filters>
+				<ThresholdFilter level="WARN" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="ALL" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="TRACE" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="DEBUG" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="INFO" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="ERROR" onMatch="DENY"
+					onMismatch="DENY" />
+				<ThresholdFilter level="FATAL" onMatch="DENY"
+					onMismatch="DENY" />
+			</Filters>
+		</Console>
+		<File name="${fae_crearclienteadquiriente-path}-log"
+			fileName="${log-path}/${fae_crearclienteadquiriente-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="${fae_actualizarclienteadquiriente-path}-log"
+			fileName="${log-path}/${fae_actualizarclienteadquiriente-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="${fae_emitirfacturaelectronica-path}-log"
+			fileName="${log-path}/${fae_emitirfacturaelectronica-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="${fae_emitirnotacreditoelectronica-path}-log"
+			fileName="${log-path}/${fae_emitirnotacreditoelectronica-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="${fae_emitirnotadebitoelectronica-path}-log"
+			fileName="${log-path}/${fae_emitirnotadebitoelectronica-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="${fae_cambiolog-path}-log"
+			fileName="${log-path}/${fae_cambiolog-path}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Root level="OFF">
+			<AppenderRef ref="Console" />
+		</Root>
+		<Logger
+			name="com.itc.integracion.felectronica.service.clienteadquiriente.crearcliente"
+			level="info">
+			<appender-ref
+				ref="${fae_crearclienteadquiriente-path}-log" level="info" />
+		</Logger>
+		<Logger
+			name="com.itc.integracion.felectronica.service.clienteadquiriente.actualizarcliente"
+			level="info">
+			<appender-ref
+				ref="${fae_actualizarclienteadquiriente-path}-log" level="info" />
+		</Logger>
+		<Logger
+			name="com.itc.integracion.felectronica.service.emitirfacturaelectronica"
+			level="info">
+			<appender-ref
+				ref="${fae_emitirfacturaelectronica-path}-log" level="info" />
+		</Logger>
+		<Logger
+			name="com.itc.integracion.felectronica.service.emitirnotacreditoelectronica"
+			level="info">
+			<appender-ref
+				ref="${fae_emitirnotacreditoelectronica-path}-log" level="info" />
+		</Logger>
+		<Logger
+			name="com.itc.integracion.felectronica.service.emitirnotadebitoelectronica"
+			level="info">
+			<appender-ref
+				ref="${fae_emitirnotadebitoelectronica-path}-log" level="info" />
+		</Logger>
+		<Logger
+			name="com.itc.integracion.felectronica.config"
+			level="info">
+			<appender-ref
+				ref="${fae_cambiolog-path}-log" level="info" />
+		</Logger>
+	</Loggers>
+</Configuration>
+
