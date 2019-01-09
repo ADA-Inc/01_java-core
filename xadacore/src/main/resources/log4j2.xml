@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
+<!--suppress XmlWrongRootElement -->
 <Configuration status="OFF">
 	<Properties>
 		<Property name="log-path">logs</Property>
