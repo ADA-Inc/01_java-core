@@ -1,14 +1,20 @@
 /*
- * MIT License 
- * 
+ * MIT License
+ *
  * Copyright (c) 2018 Ownk
  *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  */
 
 package com.ada.xadacore.util.config;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -22,14 +28,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.util.Properties;
-
 /**
  *
  * <h1>ComponetConfigBD</h1>
@@ -38,12 +38,11 @@ import java.util.Properties;
  *
  * @author TheOverLordKotan (ADA)
  * @version 1.0
- * 
+ *
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan(value = {"com.ada.fics.accessdata.persistence.**"}, sqlSessionFactoryRef="sqlSessionFactoryBeanFics")
-@Profile({"AdarchitureCore","AdarchitureCoreOccidente"})
+@Profile("AdarchitureCore")
 public class ComponetFicsConfigBD implements EnvironmentAware{
 
 
@@ -52,53 +51,34 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 	@Autowired
 	Environment env;
 
-	@Profile({"AdarchitureCore","AdarchitureCoreOccidente"})
+	@Profile("AdarchitureCore")
 	@Bean(name="dsPrimary",destroyMethod="")
 	@Primary
 	public DataSource getDataSourceComponetFicsTest() {
 
-		Properties props =null;
-		String dataSource = null;
-		Boolean isDatasourcePar = false;
-		InitialContext ic2;
-		DataSource ds = null;
-		try {
-			ic2 = new InitialContext();
-			props = new Properties();
-			props.load(this.getClass().getResourceAsStream("/applicationfics.properties"));
-			dataSource = props.getProperty("fics.xcomp.datasource.name");
-			isDatasourcePar = Boolean.valueOf(props.getProperty("fics.xcomp.isdatasource"));
-			/*
-			 * =====================================
-			 * Este if se encarga de validar la 
-			 * existencia del datasource
-			 * desde compilacion
-			 * =====================================
-			 */
-			if (isDatasourcePar&& dataSource!=null && !dataSource.isEmpty()) {
-				ds = (DataSource) ic2.lookup(dataSource);
-			}
+//		if(logger.isDebugEnabled()){
+//			logger.debug("getDataSource");
+//		}
 
-		} catch (NamingException e) {
-			e.printStackTrace();	
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		  
-		return ds;
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@192.168.0.18:1521:xe");
+		dataSource.setUsername("system");
+		dataSource.setPassword("oracle");
 
+		return dataSource;
 
 	}
 
-	
+
 
 
 
 	@Bean
-	@Profile({"AdarchitureCore","AdarchitureCoreOccidente"})
+	@Profile("AdarchitureCore")
 	public DataSourceTransactionManager transactionManagerTest() {
 		//		if(logger.isDebugEnabled()){
-		//			logger.debug("transactionManager");				
+		//			logger.debug("transactionManager");
 		//		}
 		//		System.out.println("transactionManager");
 		return new DataSourceTransactionManager(getDataSourceComponetFicsTest());
@@ -107,7 +87,7 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 
 
 	@Bean(name="sqlSessionFactoryBeanFics")
-	@Profile({"AdarchitureCore","AdarchitureCoreOccidente"})
+	@Profile("AdarchitureCore")
 	public SqlSessionFactoryBean sqlSessionFactoryBeanFics() throws IOException {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		DataSource primaryDs = getDataSourceComponetFicsTest();
@@ -126,7 +106,7 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 	}
 
 	@Bean
-	@Profile({"AdarchitureCore","AdarchitureCoreOccidente"})
+	@Profile("AdarchitureCore")
 	public MapperScannerConfigurer mapperScannerConfigurer() {
 		MapperScannerConfigurer mapperScannerConfigurer =
 				new MapperScannerConfigurer();
