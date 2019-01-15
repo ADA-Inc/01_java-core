@@ -1,14 +1,14 @@
 /*
- * MIT License
- *
+ * MIT License 
+ * 
  * Copyright (c) 2018 Ownk
  *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * 
  */
 
-package com.ada.xadacore.util.config;
+package com.ada.fics.accessdata.config;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -38,10 +38,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  * @author TheOverLordKotan (ADA)
  * @version 1.0
- *
+ * 
  */
-@EnableTransactionManagement
+@EnableTransactionManagement  
 @Configuration
+@MapperScan(value = {"com.ada.fics.accessdata.persistence.**"}, sqlSessionFactoryRef="sqlSessionFactoryBeanFics")
 @Profile("AdarchitureCore")
 public class ComponetFicsConfigBD implements EnvironmentAware{
 
@@ -56,10 +57,6 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 	@Primary
 	public DataSource getDataSourceComponetFicsTest() {
 
-//		if(logger.isDebugEnabled()){
-//			logger.debug("getDataSource");
-//		}
-
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@192.168.0.18:1521:xe");
@@ -67,10 +64,9 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 		dataSource.setPassword("oracle");
 
 		return dataSource;
-
 	}
 
-
+	
 
 
 
@@ -78,7 +74,7 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 	@Profile("AdarchitureCore")
 	public DataSourceTransactionManager transactionManagerTest() {
 		//		if(logger.isDebugEnabled()){
-		//			logger.debug("transactionManager");
+		//			logger.debug("transactionManager");				
 		//		}
 		//		System.out.println("transactionManager");
 		return new DataSourceTransactionManager(getDataSourceComponetFicsTest());
@@ -101,11 +97,11 @@ public class ComponetFicsConfigBD implements EnvironmentAware{
 			sqlSessionFactoryBean.setDataSource(primaryDs);
 		}
 		PathMatchingResourcePatternResolver pathM3R = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(pathM3R.getResources("classpath*:com/ada/fics/accessdata/persistence/mapper/*.xml"));
+		sqlSessionFactoryBean.setMapperLocations(pathM3R.getResources("classpath*:com/itc/adarchitecture/fics/accessdata/persistence/mapper/*.xml"));
 		return sqlSessionFactoryBean;
 	}
 
-	@Bean
+	@Bean("fics")
 	@Profile("AdarchitureCore")
 	public MapperScannerConfigurer mapperScannerConfigurer() {
 		MapperScannerConfigurer mapperScannerConfigurer =
